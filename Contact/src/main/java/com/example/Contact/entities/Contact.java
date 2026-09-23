@@ -1,0 +1,45 @@
+package com.example.Contact.entities;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Contact implements Serializable{
+    @Id @GeneratedValue
+    private long id;
+
+    @Override
+    public String toString() {
+        return "Contacts [id=" + id + ", nom=" + nom + ", email=" + "]";
+    }
+
+    private String nom;
+    private String email;
+    private int note;
+
+    public int getNote() {
+        return note;
+    }
+
+    public void setNote(int note) {
+        this.note = note;
+    }
+
+    public Contact() {
+        super();
+    }
+
+    public Contact(String nom, String email, int note) {
+        super();
+        this.nom = nom;
+        this.email = email;
+        this.note = note;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    //getters et setters
+}
