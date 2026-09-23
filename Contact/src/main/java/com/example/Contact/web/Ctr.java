@@ -1,7 +1,14 @@
 package com.example.Contact.web;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.Contact.dao.ContactRepository;
+import com.example.Contact.entities.Contact;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
@@ -17,9 +24,9 @@ public class Ctr {
 
     @RequestMapping("/contacts")
     public String contacts(Model model) throws InterruptedException {
-        List<Contact> contacts=contacRepository.findAll();
+        List<Contact> contacts=contactRepository.findAll();
         model.addAttribute("contacts", contacts);
-        return "liste"
+        return "list";
     }
 
     @RequestMapping("/save")

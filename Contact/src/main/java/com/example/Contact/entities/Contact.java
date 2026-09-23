@@ -18,6 +18,14 @@ public class Contact implements Serializable{
     private String email;
     private int note;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getnom() {
+        return nom;
+    }
+
     public int getNote() {
         return note;
     }
