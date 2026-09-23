@@ -1,8 +1,13 @@
 package com.example.Contact.web;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.example.Contact.dao.ContactRepository;
+import com.example.Contact.entities.Contact;
 
 @Controller
 public class Ctr {
@@ -17,13 +22,13 @@ public class Ctr {
 
     @RequestMapping("/contacts")
     public String contacts(Model model) throws InterruptedException {
-        List<Contact> contacts=contacRepository.findAll();
+        List<Contact> contacts=contactRepository.findAll();
         model.addAttribute("contacts", contacts);
-        return "liste"
+        return "liste";
     }
 
     @RequestMapping("/save")
-    public String save(@RequestParam String nom, @RequestParam String email, @RequestParam String note, Model model) throw InterException {
+    public String save(@RequestParam String nom, @RequestParam String email, @RequestParam String note, Model model) throws InterruptedException {
         contactRepository.save(new Contact(nom, email, Integer.parseInt(note)));
         return contacts(model);
     }
