@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spring MVC Example</title>
+
+    <style>
+      td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Liste des contacts</h1>
+
+    <table border="2">
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Note</th>
+      </tr>
+
+      <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.id}" />
+        <td th:text="${contact.nom}" />
+        <td th:text="${contact.email}" />
+        <td th:text="${contact.note}" />
+      </tr>
+    </table>
+  </body>
+</html>
