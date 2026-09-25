@@ -2,16 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Spring MVC Example</title>
-
-    <style>
-      td {
-        padding: 10px;
-      }
-    </style>
   </head>
 
   <body>
     <h1>Liste des contacts</h1>
+
+    <form action="/contacts" method="get">
+      <label>Filtrer par note exacte : </label>
+      <input type="number" name="noteExacte" min="0" max="20"/>
+      <button type="submit">Chercher</button>
+    </form>
+
+    <form action="/contacts" method="get">
+      <label>Contacts mal notés (note max) : </label>
+      <input type="number" name="noteMax" value="2" min="0" max="20"/>
+      <button type="submit">Filtrer</button>
+    </form>
+
+    <p><a href="/contacts">Voir tous les contacts</a></p>
 
     <table border="2">
       <tr>
