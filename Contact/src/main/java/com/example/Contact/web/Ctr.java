@@ -24,8 +24,24 @@ public class Ctr {
     }
 
     @RequestMapping("/contacts")
-    public String contacts(Model model) throws InterruptedException {
-        List<Contact> contacts=contactRepository.findAll();
+    public String contacts(
+            @RequestParam(name= "noteExacte", required = false) Integer noteExact,
+            @RequestParam(name= "noteMax", required = false) Integer noteMax,
+            Model model) throws InterruptedException {
+
+        List<Contact> contacts;
+
+        if (noteExact != null){
+            //Recherche afficher en fonction de la note
+            contacts = contactRepository.findByNote(noteExact);
+        }
+        else if (noteMax != null) {
+            contacts = contactRepository.findByNoteLessThanEqual(noteMax);
+        }
+        else {
+            contacts = contactRepository.findAll();
+        }
+
         model.addAttribute("contacts", contacts);
         return "list";
     }
@@ -33,7 +49,7 @@ public class Ctr {
     @RequestMapping("/save")
     public String save(@RequestParam String nom, @RequestParam String email, @RequestParam String note, Model model) throws InterruptedException {
         contactRepository.save(new Contact(nom, email, Integer.parseInt(note)));
-        return contacts(model);
+        return "redirect:/contacts";
     }
 
 
