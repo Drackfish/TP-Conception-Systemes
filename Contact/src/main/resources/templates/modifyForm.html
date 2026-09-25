@@ -16,7 +16,7 @@
       <input type="hidden" name="id" th:value="${contact.id}" />
       <input type="text" th:value="${contact.nom}" name="nom" />
       <input type="text" th:value="${contact.email}" name="email" />
-      <input type="text" th:value="${contact.note}" name="note" />
+      <input type="number" max="20" th:value="${contact.note}" name="note" />
       <input type="submit" value="Envoyer" />
     </form>
 

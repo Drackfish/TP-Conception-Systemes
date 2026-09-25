@@ -102,6 +102,6 @@ public class Ctr {
             contactRepository.save(c);
         }
         
-        return contacts(model);
+        return "redirect:/contacts";
     }
 }
