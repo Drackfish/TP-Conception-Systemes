@@ -22,7 +22,7 @@ public class Contact implements Serializable{
         return email;
     }
 
-    public String getnom() {
+    public String getNom() {
         return nom;
     }
 
@@ -32,6 +32,14 @@ public class Contact implements Serializable{
 
     public void setNote(int note) {
         this.note = note;
+    }
+
+    public  void setNom(String nom){
+        this.nom = nom;
+    }
+    
+    public  void setEmail(String email){
+        this.email = email;
     }
 
     public Contact() {

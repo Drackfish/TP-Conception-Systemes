@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <h1>Liste des contacts</h1>
+    <h1>Liste des contacts à modifier</h1>
 
     <table border="2">
       <tr>
@@ -19,13 +19,17 @@
         <th>Nom</th>
         <th>Email</th>
         <th>Note</th>
+        <th></th>
       </tr>
 
       <tr th:each="contact : ${contacts}">
-        <td th:text="${contact.id}" />
+        <td th:text="${contact.id}"></td>
         <td th:text="${contact.nom}" />
         <td th:text="${contact.email}" />
         <td th:text="${contact.note}" />
+        <td>
+          <a th:href="@{/modify(id=${contact.id})}"> Image de crayon </a>
+        </td>
       </tr>
     </table>
 

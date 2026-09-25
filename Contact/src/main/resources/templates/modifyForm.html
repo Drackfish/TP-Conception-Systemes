@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spring MVC Example</title>
+    <style>
+      td {
+        padding: 10px;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <h1>Personne a modifier</h1>
+    <form action="/doModify" method="post">
+      <input type="hidden" name="id" th:value="${contact.id}" />
+      <input type="text" th:value="${contact.nom}" name="nom" />
+      <input type="text" th:value="${contact.email}" name="email" />
+      <input type="text" th:value="${contact.note}" name="note" />
+      <input type="submit" value="Envoyer" />
+    </form>
+
+    <h2><a href="/">Revenir à l'accueil</a></h2>
+  </body>
+</html>
