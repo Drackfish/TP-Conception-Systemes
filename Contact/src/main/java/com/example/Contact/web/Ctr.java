@@ -1,9 +1,6 @@
 package com.example.Contact.web;
 import java.util.List;
 import java.util.Optional;
-
-import javax.ws.rs.container.ContainerRequestContext;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
