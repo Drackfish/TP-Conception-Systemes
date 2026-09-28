@@ -3,7 +3,7 @@ import java.util.List;
 import com.example.Contact.entities.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ContactRepository extends JpaRepository<Contact,Long> {
+public interface ContactRepository extends JpaRepository<Contact, String> {
     //Recherche par note
     List<Contact> findByNote(int note);
 

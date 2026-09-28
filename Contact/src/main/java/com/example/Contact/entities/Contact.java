@@ -45,6 +45,10 @@ public class Contact implements Serializable{
     public int getNote() {
         return note;
     }
+
+    public Personne getPersonne(){
+        return personne;
+    }
     
     public  void setEmail(String email){
         this.email = email;
@@ -56,5 +60,9 @@ public class Contact implements Serializable{
 
     public void setNote(int note) {
         this.note = note;
+    }
+
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 }

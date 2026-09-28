@@ -10,5 +10,5 @@ public interface PersonneRepository extends JpaRepository<Personne, Long>{
     List<Personne> findByContactsIsEmpty();
 
     @Query ("SELECT p FROM Personne p JOIN p.contacts c GROUP BY p ORDER BY AVG(c.note) DESC")
-    List<Personne> findPersonneWithHighAverageContactNote();
+    List<Personne> findPersonneWithHighestAverageContactNote();
 }

@@ -1,21 +1,32 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Spring MVC Example</title>
+    <title>Ajout contact</title>
     <meta charset="utf-8" />
-    <title>Insert title here</title>
   </head>
   <body>
-    <form action="/save" method="post">
-      <input type="text" placeholder="Entrez votre nom" name="nom" />
-      <input type="text" placeholder="Entrez votre email" name="email" />
-      <input
-        type="number"
-        max="20"
-        placeholder="Entrez votre note"
-        name="note"
-      />
-      <input type="submit" value="Envoyer" />
+    <form action="/saveContact" method="post">
+      <label>Email du contact :</label>
+      <input type="text" name="email" required /><br/>
+
+      <label>Nom du contact :</label>
+      <input type="text" name="nom" required /><br/>
+
+      <label>Note :</label>
+      <input type="number" name="note" min="0" max="20" required /><br/>
+
+      <!-- Sélection de la personne associée -->
+      <label>Personne :</label>
+      <select name="personneId" required>
+        <option value="">-- Choisissez une personne --</option>
+        <!-- On parcourt la liste des personnes transmise par le contrôleur -->
+        <th:block th:each="p : ${personnes}">
+          <!-- La value envoie l'ID (Long) de la personne, et le texte affiche son nom/prénom -->
+          <option th:value="${p.id}" th:text="${p.nom + ' ' + p.prenom}"></option>
+        </th:block>
+      </select><br/>
+
+      <button type="submit">Enregistrer le contact</button>
     </form>
 
     <h2><a href="/">Revenir à l'accueil</a></h2>
