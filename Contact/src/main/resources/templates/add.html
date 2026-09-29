@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <form action="/saveContact" method="post">
+    <form action="/saveContacts" method="post">
       <label>Email du contact :</label>
       <input type="text" name="email" required /><br/>
 
@@ -24,7 +24,8 @@
           <!-- La value envoie l'ID (Long) de la personne, et le texte affiche son nom/prénom -->
           <option th:value="${p.id}" th:text="${p.nom + ' ' + p.prenom}"></option>
         </th:block>
-      </select><br/>
+      </select>
+      <br/>
 
       <button type="submit">Enregistrer le contact</button>
     </form>

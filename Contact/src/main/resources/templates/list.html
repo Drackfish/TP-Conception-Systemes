@@ -8,7 +8,7 @@
     <h1>Liste des contacts à modifier</h1>
     
     <h1><a href="/contacts">Voir tous les contacts</a> | <a href="/personnes">Gérer les personnes</a></h1>
-    <h2><a href="ajoutContact">Ajouter un contact</a> | <a href="delete">Supprimer un contact</a></h2>
+    <h2><a href="ajoutContact">Ajouter un contact</a> | <a href="deleteContact">Supprimer un contact</a></h2>
     
         <form action="/contacts" method="get">
           <label>Filtrer par note exacte : </label>
@@ -35,7 +35,7 @@
         <td th:text="${contact.email}"></td>
         <td th:text="${contact.nom}"></td>
         <td th:text="${contact.note}"></td>
-        <td th:text="${contact.personne != null ? contact.personne.nom + ' ' + contact.prenom : 'Aucune'}"></td>
+        <td th:text="${contact.personne != null ? contact.personne.nom + ' ' + contact.personne.prenom : 'Aucune'}"></td>
         <td>
           <a th:href="@{/modifyContact(email=${contact.email})}">Modifier</a> |
           <a th:href="@{/deleteContact(email=${contact.email})}">Supprimer</a>

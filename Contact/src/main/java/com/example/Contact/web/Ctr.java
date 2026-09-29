@@ -100,8 +100,8 @@ public class Ctr {
     }
     
     // A modif
-    @RequestMapping("/delete")
-    public String delete() {
+    @RequestMapping("/deleteContact")
+    public String deleteContact() {
         return "delete";
     }
 
@@ -163,17 +163,18 @@ public class Ctr {
     }
 
     @RequestMapping("/ajoutContact")
-    public String ajoutContact() {
+    public String ajoutContact(Model model) {
+        model.addAttribute("personnes", personneRepository.findAll());
         return "add";
     }
 
     @RequestMapping("/deleteSave")
     public String deleteSave(@RequestParam String email) {
-        Optional<Contact> contact=contactRepository.findById(email);
+        Optional<Contact> contact = contactRepository.findById(email);
         if (contact.isPresent()){
             contactRepository.deleteById(email);
         }
-        return "delete";
+        return "list";
     }
 
 }
